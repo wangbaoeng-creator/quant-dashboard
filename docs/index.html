@@ -50,6 +50,12 @@ body{margin:0;background:var(--bg);color:var(--text);font:16px/1.5 -apple-system
 .str{text-align:right;min-width:70px}.str .v{font-size:20px;font-weight:900;letter-spacing:-.02em;font-variant-numeric:tabular-nums}.str .l{font-size:10px;color:var(--muted)}
 .badge{display:inline-block;font-size:10px;font-weight:800;border-radius:6px;padding:2px 6px;margin-top:5px;white-space:nowrap}
 .badge.warn{color:var(--warn);background:var(--warn-bg)}.badge.ok{color:var(--down);background:var(--down-bg)}
+.target-view{align-items:center}.target-detail{font-size:12px;line-height:1.5;color:var(--muted);margin-top:5px}
+.target-state{display:inline-block;font-size:10px;font-weight:900;border-radius:7px;padding:4px 7px;white-space:nowrap;background:var(--soft);color:var(--muted)}
+.target-view.held_no_order .target-state{background:var(--down-bg);color:var(--down)}
+.target-view.pending_order .target-state{background:var(--warn-bg);color:var(--warn)}
+.target-view.target_no_order .target-state{background:var(--accent-bg);color:var(--accent)}
+.target-view.review_blocked .target-state{background:var(--warn-bg);color:var(--warn)}
 .attr{border-top:1px solid var(--line);padding:13px 0}
 .attr:first-child{border-top:0;padding-top:0}
 .attr-top{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:8px}
@@ -123,8 +129,8 @@ html{scroll-behavior:smooth;scroll-padding-top:12px}
 <div class="statusbar"><span class="status-chip good">数据已通过</span><span class="status-chip">信号日 2026-07-20</span><span class="status-chip">下一交易日开盘执行</span></div>
 
 <section id="action">
-<div class="decision"><div class="eyebrow">明日决策</div><h2>下一交易日无需操作</h2><p>继续持有 4 只目标股票，当前没有需要执行的订单。</p>
-  <div class="summary-grid"><div><b>0</b>卖出</div><div><b>0</b>买入</div><div><b>4</b>保留</div><div><b>10.0%</b>目标仓位</div></div>
+<div class="decision"><div class="eyebrow">明日决策</div><h2>下一交易日无需操作</h2><p>账户实际持仓 2 只；理论目标共 4 只，其中 2 只经过执行约束后没有形成订单。</p>
+  <div class="summary-grid"><div><b>0</b>卖出订单</div><div><b>0</b>买入订单</div><div><b>2</b>实际持仓</div><div><b>4</b>理论目标</div></div>
 </div>
 <div class="sec"><div class="sec-h"><div class="t">执行清单</div><div class="hint">0 笔 · 真实成交后确认</div></div><div class='calm'>下一交易日无需操作 ✓<br><span>保持现有持仓，等待新信号。</span></div></div>
 </section>
@@ -141,7 +147,7 @@ html{scroll-behavior:smooth;scroll-padding-top:12px}
 
 <section id="explain">
 <div class="sec"><div class="sec-h"><div class="t">组合变化解释</div><div class="hint">先看组合，再看个股</div></div><div class="combo-summary">组合目标整体稳定，没有集中退出。</div><div class="card"><details class='attr warn' data-k='吉林敖东'><summary><div><div class='nm'>吉林敖东</div><div class='code'>000623.SZ</div></div><span class='attr-badge'>减仓</span></summary><div class='attr-w'>目标权重 5.1% → 3.5% · 当前持仓 900 股</div><div class='attr-sig'><b>上一日：</b>事件 other · 趋势OK 是 · 距60日线 1.01% · ma60上行 是 · 20/60日 1.22%/-1.59% · 相对60日 7.78%</div><div class='attr-sig'><b>信号日：</b>事件 pullback_only · 趋势OK 是 · 距60日线 3.77% · ma60上行 是 · 20/60日 5.38%/2.14% · 相对60日 12.52%</div><ul class='attr-reasons'><li>续持趋势满足：站上60日线且60日线向上</li><li>仍有入场事件：pullback_only</li><li>目标权重仍为正，继续持有或按目标调仓</li></ul><div class='attr-foot'><span class='kline-cta'>📈 查看K线 ›</span></div></details><details class='attr warn' data-k='普洛药业'><summary><div><div class='nm'>普洛药业</div><div class='code'>000739.SZ</div></div><span class='attr-badge'>减仓</span></summary><div class='attr-w'>目标权重 4.9% → 3.3% · 当前持仓 800 股</div><div class='attr-sig'><b>上一日：</b>事件 other · 趋势OK 是 · 距60日线 7.48% · ma60上行 是 · 20/60日 13.32%/3.86% · 相对60日 13.23%</div><div class='attr-sig'><b>信号日：</b>事件 other · 趋势OK 是 · 距60日线 9.36% · ma60上行 是 · 20/60日 15.88%/7.48% · 相对60日 17.87%</div><ul class='attr-reasons'><li>续持趋势满足：站上60日线且60日线向上</li><li>目标权重仍为正，继续持有或按目标调仓</li></ul><div class='attr-foot'><span class='kline-cta'>📈 查看K线 ›</span></div></details><details class='attr accent' data-k='沃森生物'><summary><div><div class='nm'>沃森生物</div><div class='code'>300142.SZ</div></div><span class='attr-badge'>新入选</span></summary><div class='attr-w'>目标权重 0.0% → 1.6% · 当前持仓 0 股</div><div class='attr-sig'><b>上一日：</b>事件 other · 趋势OK 否 · 距60日线 -2.19% · ma60上行 是 · 20/60日 3.93%/-0.97% · 相对60日 8.40%</div><div class='attr-sig'><b>信号日：</b>事件 pullback_only · 趋势OK 是 · 距60日线 1.02% · ma60上行 是 · 20/60日 8.58%/4.66% · 相对60日 15.05%</div><ul class='attr-reasons'><li>新目标由事件触发：pullback_only</li></ul><div class='attr-foot'><span class='kline-cta'>📈 查看K线 ›</span></div></details><details class='attr accent' data-k='百济神州'><summary><div><div class='nm'>百济神州</div><div class='code'>688235.SH</div></div><span class='attr-badge'>新入选</span></summary><div class='attr-w'>目标权重 0.0% → 1.5% · 当前持仓 0 股</div><div class='attr-sig'><b>上一日：</b>事件 other · 趋势OK 是 · 距60日线 3.41% · ma60上行 是 · 20/60日 16.93%/-2.94% · 相对60日 6.42%</div><div class='attr-sig'><b>信号日：</b>事件 pullback_only · 趋势OK 是 · 距60日线 6.95% · ma60上行 是 · 20/60日 21.94%/4.74% · 相对60日 15.13%</div><ul class='attr-reasons'><li>新目标由事件触发：pullback_only</li></ul><div class='attr-foot'><span class='kline-cta'>📈 查看K线 ›</span></div></details></div></div>
-<div class="sec"><div class="sec-h"><div class="t">继续持有</div><div class="hint">4 只 · 目标仓位 10.0%</div></div><div class="card"><div class='opp' data-k='吉林敖东'><div class='rk'>1</div><div class='body'><div class='nm'>吉林敖东<span class='tag'>-</span></div><div class='why'>当前 3.4% · 目标 3.5%</div></div><div class='str'><span class='badge ok'>正常仓位</span></div></div><div class='opp' data-k='普洛药业'><div class='rk'>2</div><div class='body'><div class='nm'>普洛药业<span class='tag'>-</span></div><div class='why'>当前 3.3% · 目标 3.3%</div></div><div class='str'><span class='badge ok'>正常仓位</span></div></div><div class='opp' data-k='沃森生物'><div class='rk'>3</div><div class='body'><div class='nm'>沃森生物<span class='tag'>-</span></div><div class='why'>当前 0.0% · 目标 1.6%</div></div><div class='str'><span class='badge ok'>正常仓位</span></div></div><div class='opp' data-k='百济神州'><div class='rk'>4</div><div class='body'><div class='nm'>百济神州<span class='tag'>-</span></div><div class='why'>当前 0.0% · 目标 1.5%</div></div><div class='str'><span class='badge ok'>正常仓位</span></div></div></div></div>
+<div class="sec"><div class="sec-h"><div class="t">理论目标组合</div><div class="hint">不等于实际持仓 · 2 已持有 / 2 未下单</div></div><div class="card"><div class="combo-summary">目标层决定系统希望配置什么；订单层再根据调仓门槛、整手、资金和成交约束决定是否真的操作。只有确认成交后，才会进入上方“账户与持仓”。</div><div class='opp target-view held_no_order' data-k='吉林敖东'><div class='rk'>1</div><div class='body'><div class='nm'>吉林敖东<span class='tag'>-</span></div><div class='why'>当前 3.4% · 目标 3.5%</div><div class='target-detail'>已持有 900 股；当前与目标的差额约 ¥613，执行层未生成订单（低于约 ¥9,817 的调仓门槛）</div></div><div class='str'><span class='target-state'>实际持仓·无需调仓</span></div></div><div class='opp target-view held_no_order' data-k='普洛药业'><div class='rk'>2</div><div class='body'><div class='nm'>普洛药业<span class='tag'>-</span></div><div class='why'>当前 3.3% · 目标 3.3%</div><div class='target-detail'>已持有 800 股；当前与目标的差额约 ¥384，执行层未生成订单（低于约 ¥9,817 的调仓门槛）</div></div><div class='str'><span class='target-state'>实际持仓·无需调仓</span></div></div><div class='opp target-view target_no_order' data-k='沃森生物'><div class='rk'>3</div><div class='body'><div class='nm'>沃森生物<span class='tag'>-</span></div><div class='why'>当前 0.0% · 目标 1.6%</div><div class='target-detail'>目标金额约 ¥7,852；按本次调仓比例计算后，低于约 ¥9,817 的最小调仓金额</div></div><div class='str'><span class='target-state'>理论目标·未下单</span></div></div><div class='opp target-view target_no_order' data-k='百济神州'><div class='rk'>4</div><div class='body'><div class='nm'>百济神州<span class='tag'>-</span></div><div class='why'>当前 0.0% · 目标 1.5%</div><div class='target-detail'>目标金额约 ¥7,515；按本次调仓比例计算后，低于约 ¥9,817 的最小调仓金额；科创板首次至少 200 股，按参考价约需 ¥51,860</div></div><div class='str'><span class='target-state'>理论目标·未下单</span></div></div></div></div>
 </section>
 
 <section id="system">
@@ -152,7 +158,7 @@ html{scroll-behavior:smooth;scroll-padding-top:12px}
     <div class="system-item">行情截止<b>2026-07-20</b></div>
     <div class="system-item">覆盖率<b>100.0%</b></div>
     <div class="system-item">数据包<b>7ea09f023317</b></div>
-    <div class="system-item">代码版本<b>1e6736073272</b></div>
+    <div class="system-item">代码版本<b>cef2fbf6065a</b></div>
     <div class="system-item">质量门禁<b>数据已通过</b></div>
   </div>
   <ul class="system-list"><li>持仓与现金只读取已确认成交记录；计划订单不会被线上任务自动记为成交</li></ul>
